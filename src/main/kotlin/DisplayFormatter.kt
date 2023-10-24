@@ -12,6 +12,10 @@ object DisplayFormatter {
     }
 
     private fun concatenate(names: List<String?>): String {
-        return java.lang.String.join(" and ", names)
+        var joined: String = java.lang.String.join(" and ", names)
+        if (names.size == 3) {
+            joined = joined.replaceFirst(" and ".toRegex(), ", ")
+        }
+        return joined
     }
 }

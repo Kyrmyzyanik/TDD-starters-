@@ -22,4 +22,11 @@ class DisplayFormatterTest {
         val label: String = DisplayFormatter.format(listOf("Clare", "Marcus"))
         assertThat(label).isEqualTo("Names provided are Clare and Marcus!")
     }
+
+    @Test
+    @DisplayName("For three users, the first two names should be separated by a comma")
+    fun shouldPrintThreeUserNameWithAnd() {
+        val label: String = DisplayFormatter.format(listOf("Clare", "Marcus", "Angie"))
+        assertThat(label).isEqualTo("Names provided are Clare, Marcus and Angie!")
+    }
 }
