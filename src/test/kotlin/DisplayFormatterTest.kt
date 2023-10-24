@@ -6,20 +6,20 @@ class DisplayFormatterTest {
     @Test
     @DisplayName("For an empty list, a predefined message should be returned")
     fun shouldPrintNoOneLikesThisForEmptyList() {
-        assertThat(DisplayFormatter().format(listOf())).isEqualTo("There are no names provided!")
+        assertThat(DisplayFormatter.format(listOf())).isEqualTo("There are no names provided!")
     }
 
     @Test
     @DisplayName("For a single user, their name should be displayed")
     fun shouldPrintSingleUserName() {
-        val label: String = DisplayFormatter().format(listOf("Clare"))
+        val label: String = DisplayFormatter.format(listOf("Clare"))
         assertThat(label).isEqualTo("Name provided is Clare!")
     }
 
     @Test
     @DisplayName("For two users, their names should be separated by 'and'")
     fun shouldPrintTwoUserNameWithAnd() {
-        val label: String = DisplayFormatter().format(listOf("Clare", "Marcus"))
+        val label: String = DisplayFormatter.format(listOf("Clare", "Marcus"))
         assertThat(label).isEqualTo("Names provided are Clare and Marcus!")
     }
 }

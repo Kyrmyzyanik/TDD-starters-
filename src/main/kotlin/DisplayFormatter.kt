@@ -1,7 +1,7 @@
-class DisplayFormatter {
+object DisplayFormatter {
     fun format(names: List<String?>?): String {
         names?.let {
-            val name = if (it.isEmpty()) "There are no names provided!" else concatenate(it)
+            val name = if (it.isEmpty()) return "There are no names provided!" else concatenate(it)
             val verb = if (it.size > 1) "are" else "is"
             val suffix = if (it.size > 1) "s" else ""
             return String.format("Name%s provided %s %s!", suffix, verb, name)
