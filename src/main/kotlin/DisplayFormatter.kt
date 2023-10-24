@@ -1,25 +1,21 @@
 object DisplayFormatter {
+    //Challenge: try to refactor 0 case message
     fun format(names: List<String?>?): String {
         names?.let {
-            val name = if (it.isEmpty()) return "There are no names provided!" else concatenate(it)
             val verb = if (it.size > 1) "are" else "is"
             val suffix = if (it.size > 1) "s" else ""
-            return String.format("Name%s provided %s %s!", suffix, verb, name)
-
+            return String.format("Name%s provided %s %s!",suffix, verb, concatenate(it))
         } ?: run {
             return "There are no names provided!"
         }
     }
-
-    private fun concatenate(names: List<String?>): String {
-        if (names.size > 3) {
-            return String.format("%s, %s and other %s", names[0], names[1], names.size - 2);
+    //Challenge: try to refactor 0 case message
+    private fun concatenate(names: List<String?>): String? {
+        return when (names.size) {
+            1 -> names[0]
+            2 -> String.format("%s and %s", names[0], names[1])
+            3 -> String.format("%s, %s and %s", names[0], names[1], names[2])
+            else -> String.format("%s, %s and other %s", names[0], names[1], names.size - 2)
         }
-
-        var joined: String = java.lang.String.join(" and ", names)
-        if (names.size == 3) {
-            joined = joined.replaceFirst(" and ".toRegex(), ", ")
-        }
-        return joined
     }
 }

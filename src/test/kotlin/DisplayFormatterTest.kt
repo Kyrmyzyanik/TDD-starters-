@@ -3,6 +3,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 class DisplayFormatterTest {
+    //Challenge to solve: try to refactor format function to fix the test
     @Test
     @DisplayName("For an empty list, a predefined message should be returned")
     fun shouldPrintNoOneLikesThisForEmptyList() {
