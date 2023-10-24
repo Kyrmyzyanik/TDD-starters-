@@ -15,4 +15,11 @@ class DisplayFormatterTest {
         val label: String = DisplayFormatter().format(listOf("Clare"))
         assertThat(label).isEqualTo("Name provided is Clare!")
     }
+
+    @Test
+    @DisplayName("For two users, their names should be separated by 'and'")
+    fun shouldPrintTwoUserNameWithAnd() {
+        val label: String = DisplayFormatter().format(listOf("Clare", "Marcus"))
+        assertThat(label).isEqualTo("Names provided are Clare and Marcus!")
+    }
 }
