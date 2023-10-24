@@ -29,4 +29,11 @@ class DisplayFormatterTest {
         val label: String = DisplayFormatter.format(listOf("Clare", "Marcus", "Angie"))
         assertThat(label).isEqualTo("Names provided are Clare, Marcus and Angie!")
     }
+
+    @Test
+    @DisplayName("For more than three users, the list should be truncated and a number given")
+    fun shouldPrintMoreThreeUserName() {
+        val label: String = DisplayFormatter.format(listOf("Clare", "Marcus", "Angie", "Jim"))
+        assertThat(label).isEqualTo("Names provided are Clare, Marcus and other 2!")
+    }
 }

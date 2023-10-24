@@ -12,6 +12,10 @@ object DisplayFormatter {
     }
 
     private fun concatenate(names: List<String?>): String {
+        if (names.size > 3) {
+            return String.format("%s, %s and other %s", names[0], names[1], names.size - 2);
+        }
+
         var joined: String = java.lang.String.join(" and ", names)
         if (names.size == 3) {
             joined = joined.replaceFirst(" and ".toRegex(), ", ")
