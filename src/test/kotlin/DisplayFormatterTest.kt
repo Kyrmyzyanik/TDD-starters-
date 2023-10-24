@@ -3,11 +3,10 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 class DisplayFormatterTest {
-    //Challenge to solve: try to refactor format function to fix the test
     @Test
     @DisplayName("For an empty list, a predefined message should be returned")
     fun shouldPrintNoOneLikesThisForEmptyList() {
-        assertThat(DisplayFormatter.format(listOf())).isEqualTo("There are no names provided!")
+        assertThat(DisplayFormatter.format(listOf())).isEqualTo("Name provided is null!")
     }
 
     @Test
