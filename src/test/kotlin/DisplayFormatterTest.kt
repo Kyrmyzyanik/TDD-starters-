@@ -8,4 +8,11 @@ class DisplayFormatterTest {
     fun shouldPrintNoOneLikesThisForEmptyList() {
         assertThat(DisplayFormatter().format(listOf())).isEqualTo("There are no names provided!")
     }
+
+    @Test
+    @DisplayName("For a single user, their name should be displayed")
+    fun shouldPrintSingleUserName() {
+        val label: String = DisplayFormatter().format(listOf("Clare"))
+        assertThat(label).isEqualTo("Name provided is Clare!")
+    }
 }
